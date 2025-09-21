@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 90px;
+        }
+
+        .card {
+            background: #eaf3f8;
+            width: 280px;
+            min-height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h2 {
+            color: #06529b;
+            font-size: 20px;
+            margin: 0 0 8px;
+            text-align: center;
+        }
+
+        .card span {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 12px;
+            display: block;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #008000;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-align: end;
+        }
+
+        .card button {
+            background: #006400;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #009900;
+        }
+    </style>
+</head>
+<body>
+<h1>Food items</h1>
+<div class="items-container">
+    <div th:each="item: ${products}" class="card">
+        <h2 th:text="${item.name}"></h2>
+        <span th:text="${item.description}"></span>
+        <h3 th:text="${item.price} + '$'" class="price"></h3>
+        <button>details</button>
+    </div>
+</div>
+
+</body>
+</html>
