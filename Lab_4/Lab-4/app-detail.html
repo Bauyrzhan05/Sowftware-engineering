@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Application Detail</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+<h2 class="text-center">Application Detail</h2>
+
+<div th:if="${app != null}" class="text-center">
+  <p><b>User:</b> <span th:text="${app.userName}"></span></p>
+  <p><b>Course:</b> <span th:text="${app.courseName}"></span></p>
+  <p><b>Phone:</b> <span th:text="${app.phoneNumber}"></span></p>
+  <p><b>Comment:</b> <span th:text="${app.commentary}"></span></p>
+  <p><b>Status:</b> <span th:text="${app.handled} ? 'Processed' : 'Pending'"></span></p>
+
+  <div th:if="${!app.handled}">
+    <form th:action="@{'/' + ${app.id} + '/process'}" method="post">
+      <button class="btn btn-success">Process Request</button>
+    </form>
+  </div>
+
+  <form th:action="@{'/' + ${app.id} + '/delete'}" method="post" class="mt-2" >
+    <button class="btn btn-danger">Delete Application</button>
+  </form>
+  <br>
+  <a th:href="@{'/' + ${app.id} + '/edit'}" class="btn btn-info btn-sm">Edit</a>
+</div>
+
+<a href="/" class="text-center btn btn-secondary mt-3 ">Back</a>
+</body>
+</html>
