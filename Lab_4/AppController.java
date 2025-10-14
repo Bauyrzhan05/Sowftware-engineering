@@ -19,8 +19,7 @@ public class AppController {
     }
 
     @GetMapping("/new")
-    public String showAddForm(Model model){
-        model.addAttribute("application", new Application());
+    public String showAddForm(){
         return "Lab-4/add-app";
     }
     @PostMapping("/add")
