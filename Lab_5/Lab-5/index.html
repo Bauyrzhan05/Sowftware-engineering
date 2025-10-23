@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Application Requests</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Application Requests</h2>
+  <div class="mb-3 text-end">
+    <a href="/courses" class="btn btn-secondary mt-3">Courses</a>
+    <a href="/operators" class="btn btn-secondary mt-3">Operators</a>
+    <a href="/requests/new" class="btn btn-primary">+ New Request</a>
+    <a href="/requests/pending" class="btn btn-warning">Pending</a>
+    <a href="/requests/processed" class="btn btn-success">Processed</a>
+  </div>
+
+  <table class="table table-striped table-bordered align-middle">
+    <thead class="table-dark">
+    <tr>
+      <th>User Name</th>
+      <th>Commentary</th>
+      <th>Phone</th>
+      <th>Course</th>
+      <th>Handled</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="app : ${applications}">
+      <td th:text="${app.userName}"></td>
+      <td th:text="${app.commentary}"></td>
+      <td th:text="${app.phone}"></td>
+      <td th:text="${app.course.name}"></td>
+      <td>
+          <span th:text="${app.handled} ? 'Yes' : 'No'"
+                th:style="${app.handled} ? 'color:green' : 'color:red'"></span>
+      </td>
+      <td>
+        <a th:href="@{/requests/{id}(id=${app.id})}" class="btn btn-info btn-sm">View</a>
+        <a th:href="@{/requests/edit/{id}(id=${app.id})}" class="btn btn-warning btn-sm">Edit</a>
+        <form th:action="@{/requests/delete/{id}(id=${app.id})}" method="post" style="display:inline;">
+          <button class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
