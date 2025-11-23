@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+
+
+        <include file="changes/2025-11-20-12-50-00-create-tables.xml" relativeToChangelogFile="true" />
+        <include file="changes/2025-11-20-12-53-29-insert-data-table.xml" relativeToChangelogFile="true" />
+
+</databaseChangeLog>
+

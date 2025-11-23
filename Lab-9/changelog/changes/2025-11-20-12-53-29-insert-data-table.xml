@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+            http://www.liquibase.org/xml/ns/dbchangelog
+            https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="insert-countries" author="bauyrzhan">
+        <insert tableName="countries">
+            <column name="name" value="Kazakhstan"/>
+            <column name="code" value="KZ"/>
+        </insert>
+
+        <insert tableName="countries">
+            <column name="name" value="USA"/>
+            <column name="code" value="US"/>
+        </insert>
+
+        <insert tableName="countries">
+            <column name="name" value="Germany"/>
+            <column name="code" value="DE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-items" author="bauyrzhan">
+        <insert tableName="items">
+            <column name="name" value="iPhone 15"/>
+            <column name="price" valueNumeric="1500"/>
+            <column name="quantity" valueNumeric="10"/>
+            <column name="manufacturer_id" valueNumeric="2"/>
+        </insert>
+
+        <insert tableName="items">
+            <column name="name" value="Samsung S23"/>
+            <column name="price" valueNumeric="1200"/>
+            <column name="quantity" valueNumeric="15"/>
+            <column name="manufacturer_id" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="items">
+            <column name="name" value="Notebook ASUS"/>
+            <column name="price" valueNumeric="900"/>
+            <column name="quantity" valueNumeric="20"/>
+            <column name="manufacturer_id" valueNumeric="3"/>
+        </insert>
+
+        <insert tableName="items">
+            <column name="name" value="Yurt Tent"/>
+            <column name="price" valueNumeric="500"/>
+            <column name="quantity" valueNumeric="8"/>
+            <column name="manufacturer_id" valueNumeric="1"/>
+        </insert>
+
+    </changeSet>
+
+
+
+</databaseChangeLog>
